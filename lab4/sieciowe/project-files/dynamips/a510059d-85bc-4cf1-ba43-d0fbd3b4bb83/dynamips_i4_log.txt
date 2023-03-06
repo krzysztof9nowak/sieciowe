@@ -1,0 +1,45 @@
+May 30 21:39:13.343 HYPERVISOR: Release 0.2.21-amd64/Linux (tag 2019071212)
+May 30 21:39:13.343 HYPERVISOR: Started on IP = localhost, TCP port = 56795.
+May 30 21:39:13.352 HYPERVISOR: exec_cmd: hypervisor version 
+May 30 21:39:13.352 HYPERVISOR: exec_cmd: hypervisor working_dir /home/kris/GNS3/projects/sieciowe/project-files/dynamips 
+May 30 21:39:13.352 GENERAL: working_dir=/home/kris/GNS3/projects/sieciowe/project-files/dynamips
+May 30 21:39:13.352 HYPERVISOR: exec_cmd: hypervisor working_dir /home/kris/GNS3/projects/sieciowe/project-files/dynamips/02d059bf-d368-4643-ac82-feba7299aa4c 
+May 30 21:39:13.352 GENERAL: working_dir=/home/kris/GNS3/projects/sieciowe/project-files/dynamips/02d059bf-d368-4643-ac82-feba7299aa4c
+May 30 21:39:13.353 HYPERVISOR: exec_cmd: vm create R3 3 c7200 
+May 30 21:39:13.353 VM: VM R3 created.
+May 30 21:39:13.353 HYPERVISOR: exec_cmd: vm set_con_tcp_port R3 5006 
+May 30 21:39:13.353 HYPERVISOR: exec_cmd: c7200 get_mac_addr R3 
+May 30 21:39:13.353 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:39:13.353 HYPERVISOR: exec_cmd: vm slot_add_binding R3 0 0 C7200-IO-FE 
+May 30 21:39:13.354 HYPERVISOR: exec_cmd: vm set_disk0 R3 0 
+May 30 21:39:13.354 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:39:13.354 HYPERVISOR: exec_cmd: vm set_idle_pc R3 0x606e578c 
+May 30 21:39:13.355 HYPERVISOR: exec_cmd: vm set_ios R3 /home/kris/GNS3/images/IOS/c7200-adventerprisek9-mz.124-24.T5.bin 
+May 30 21:39:13.355 HYPERVISOR: exec_cmd: c7200 set_mac_addr R3 ca03.1574.0000 
+May 30 21:39:13.355 HYPERVISOR: exec_cmd: vm set_nvram R3 512 
+May 30 21:39:13.356 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:39:13.356 HYPERVISOR: exec_cmd: vm slot_add_binding R3 1 0 PA-FE-TX 
+May 30 21:39:14.167 HYPERVISOR: exec_cmd: nio create_udp udp-38514c51-d885-4c9a-9f8c-b64b61ae83cd 10020 127.0.0.1 10021 
+May 30 21:39:14.375 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 0 0 udp-38514c51-d885-4c9a-9f8c-b64b61ae83cd 
+May 30 21:39:14.376 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:39:14.419 HYPERVISOR: exec_cmd: nio create_udp udp-9199f46a-3069-42aa-9081-bfd7bbf0e68b 10024 127.0.0.1 10025 
+May 30 21:39:14.421 HYPERVISOR: exec_cmd: vm slot_add_nio_binding R3 1 0 udp-9199f46a-3069-42aa-9081-bfd7bbf0e68b 
+May 30 21:39:14.422 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:39:18.567 HYPERVISOR: exec_cmd: vm set_ghost_status R3 2 
+May 30 21:39:18.568 HYPERVISOR: exec_cmd: vm set_ghost_file R3 /home/kris/GNS3/projects/sieciowe/project-files/dynamips/c7200-adventerprisek9-mz.124-24.T5.bin-256.ghost 
+May 30 21:39:18.568 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:39:18.569 HYPERVISOR: exec_cmd: vm set_config R3 configs/i3_startup-config.cfg 
+May 30 21:39:18.569 HYPERVISOR: exec_cmd: vm start R3 
+May 30 21:39:48.813 HYPERVISOR: exec_cmd: vm extract_config R3 
+May 30 21:40:18.815 HYPERVISOR: exec_cmd: vm extract_config R3 
+May 30 21:48:22.621 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:48:22.621 HYPERVISOR: exec_cmd: vm stop R3 
+May 30 21:48:22.726 VM: VM R3 shutdown.
+May 30 21:48:22.727 HYPERVISOR: exec_cmd: vm extract_config R3 
+May 30 21:48:23.213 HYPERVISOR: exec_cmd: vm get_status R3 
+May 30 21:48:23.213 HYPERVISOR: exec_cmd: vm extract_config R3 
+May 30 21:48:23.214 HYPERVISOR: exec_cmd: vm delete R3 
+May 30 21:48:23.214 VM: VM R3 destroyed.
+May 30 21:48:23.214 HYPERVISOR: exec_cmd: hypervisor stop 
+May 30 21:48:23.288 HYPERVISOR: Stopped.
+May 30 21:48:23.288 GENERAL: reset done.
