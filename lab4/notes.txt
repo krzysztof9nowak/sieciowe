@@ -1,0 +1,79 @@
+Na komputerze przeprowadzającym symulację stworzono mostek sieciowy br0 o adresie 10.200.0.1/28
+i dodano NATowanie ruchu przez interfejs z kartą wifi
+sudo iptables -t nat -A POSTROUTING -o wlp3s0 -j MASQUERADE
+uruchomiono serwer dnsmasq przydzielający adresy z zakresu 10.200.0.4-10.200.0.14 na interfejsie br0
+- sudo vim /etc/dnsmasq.conf
+- systemctl start dnsmasq
+
+Uruchomiono GNS3, zainstalowano firmware routera C7200
+ --- Router R1
+ip nat inside source list 10 interface FastEthernet0/0 overload
+access-list 10 permit 192.168.0.0 0.0.255.255
+
+router rip
+version 2
+network 192.168.0.0
+network 192.168.3.0
+default-information originate
+no auto-summary
+
+interace FastEthernet0/0
+ip address dhcp
+ip nat outside
+debug dhcp detail
+
+interface FastEthernet1/0
+ip address 192.168.3.1 255.255.255.0
+ip nat inside
+no shutdown
+
+ --- Router R2
+interface FastEthernet0/0
+ip address 192.168.3.2 255.255.255.0
+no shutdown
+
+
+interface FastEthernet1/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+
+interface FastEthernet2/0
+ip address 192.168.4.1 255.255.255.0
+no shutdown
+
+router rip
+version 2
+network 192.168.1.0
+network 192.168.3.0
+network 192.168.4.0
+no auto-summary
+
+ --- Router R3
+interface FastEthernet0/0
+ip address 192.168.4.2 255.255.255.0
+no shutdown
+
+
+interface FastEthernet1/0
+ip address 192.168.1.1 255.255.255.0
+no shutdown
+
+router rip
+version 2
+network 192.168.4.0
+network 192.168.2.0
+no auto-summary
+
+ --- PC1
+ip 192.168.1.2/24 192.168.1.1
+ip dns 1.1.1.1
+
+
+ --- PC2
+ip 192.168.2.2/24 192.168.2.1
+ip dns 1.1.1.1
+
+
+ --- PC3
+ip 192.168.2.3/24 192.168.2.1
+ip dns 1.1.1.1
